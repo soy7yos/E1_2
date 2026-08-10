@@ -84,8 +84,33 @@ def get_valid_input(prompt, min_value, max_value):
         return value
 
 
-def play_quiz():
-    print("(추후 구현)")
+def play_quiz(quizzes):
+    """저장된 퀴즈 출제 -> 정답/오답 -> 결과 표시"""
+    if not quizzes:
+        print("⚠️  등록된 퀴즈 없음\n")
+        return None
+
+    total = len(quizzes)
+    correct = 0
+
+    print(f"\n 퀴즈 시작! (총 {total}문제)\n")
+
+    for idx, quiz in enumerate(quizzes, start=1):
+        print("-" * 40)
+        print(f"[문제 {idx}]")
+        quiz.display()
+
+        user_answer = get_valid_input("\n정답 입력: ", 1, len(quiz.choices))
+
+        if quiz.check_answer(user_answer):
+            print("⭕️ 정답\n")
+            correct += 1
+        else:
+            print(f"❌ 오답 (정답: {quiz.answer}번)\n")
+
+    score = int(correct / total * 100)
+    print(f"🏆 결과: {total}문제 중 {correct}문제 정답!\n")
+    return score
 
 def add_quiz():
     print("(추후 구현)")
@@ -121,7 +146,7 @@ def main():
             choice = get_valid_input("Enter your choice! (1-5): ", menu_min, menu_max)
 
             if choice == 1:
-                play_quiz()                
+                play_quiz(DEFAULT_QUIZZES)                
             elif choice == 2:
                 add_quiz()
             elif choice == 3:
