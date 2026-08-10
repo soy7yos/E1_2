@@ -112,8 +112,27 @@ def play_quiz(quizzes):
     print(f"🏆 결과: {total}문제 중 {correct}문제 정답!\n")
     return score
 
-def add_quiz():
-    print("(추후 구현)")
+def add_quiz(quizzes):
+    """새 퀴즈 등록 -> quizzes 리스트에 추가"""
+    print("\n📌 새로운 퀴즈 추가\n")
+
+    question = input("문제 입력: ").strip()
+    while question == "":
+        print("⚠️  문제 입력")
+        question = input("문제 입력: ").strip()
+
+    choices = []
+    for i in range(1, 5):
+        choice = input(f"선택지 {i}: ").strip()
+        while choice == "":
+            print("⚠️  선택지 입력")
+            choice = input(f"선택지 {i}: ").strip()
+        choices.append(choice)
+
+    answer = get_valid_input("정답 번호 (1-4): ", 1, 4)
+
+    quizzes.append(Quiz(question, choices, answer))
+    print("\n== 퀴즈 추가 완료 ==\n")
 
 def show_quiz_list():
     print("(추후 구현)")
@@ -148,7 +167,7 @@ def main():
             if choice == 1:
                 play_quiz(DEFAULT_QUIZZES)                
             elif choice == 2:
-                add_quiz()
+                add_quiz(DEFAULT_QUIZZES)
             elif choice == 3:
                 show_quiz_list()
             elif choice == 4:
