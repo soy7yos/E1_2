@@ -4,6 +4,25 @@ menu_min = 1
 menu_max = 5
 
 
+class Quiz:
+    """개별 퀴즈"""
+
+    def __init__(self, question, choices, answer):
+        self.question = question      # 문제
+        self.choices = choices        # 선택지 4개 (list)
+        self.answer = answer          # 정답 번호 1~4
+
+    def display(self):
+        """퀴즈 출력"""
+        print(self.question)
+        for i, choice in enumerate(self.choices, start=1):
+            print(f"{i}. {choice}")
+
+    def check_answer(self, user_answer):
+        """정답 확인 -> bool 반환"""
+        return user_answer == self.answer
+
+
 def get_valid_input(prompt, min_value, max_value):
     """공백 제거, 숫자 변환 실패, 범위 밖 숫자, 빈 입력 처리"""
     while True:
@@ -52,7 +71,7 @@ def print_menu():
 
 
 def save_and_exit():
-    # 이후 QuizGame.save()로 대체 예정
+    # QuizGame.save()로 대체 예정
     print("== 게임 종료 ==")
 
 
@@ -74,7 +93,7 @@ def main():
                 save_and_exit()
                 break
     except (KeyboardInterrupt, EOFError):
-        print("\n\n⚠️  게임 중단") # 엔터 삽입 비교
+        print("\n\n⚠️  게임 중단")
         save_and_exit()
 
 
