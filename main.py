@@ -1,7 +1,7 @@
 """Tax Basic Quiz Game"""
 
-menu_min = 1
-menu_max = 5
+MENU_MIN = 1
+MENU_MAX = 5
 
 
 class Quiz:
@@ -65,14 +65,14 @@ DEFAULT_QUIZZES = [
 def get_valid_input(prompt, min_value, max_value):
     """공백 제거, 숫자 변환 실패, 범위 밖 숫자, 빈 입력 처리"""
     while True:
-        raw = input(prompt).strip()  # 공백 제거
+        raw = input(prompt).strip()
 
         if raw == "":
             print("⚠️  입력값 없음 -> 다시 입력")
             continue
 
         try:
-            value = int(raw)  # 숫자 변환 시도
+            value = int(raw)
         except ValueError:
             print("⚠️  숫자만 입력 가능 -> 다시 입력")
             continue
@@ -84,100 +84,115 @@ def get_valid_input(prompt, min_value, max_value):
         return value
 
 
-def play_quiz(quizzes):
-    """저장된 퀴즈 출제 -> 정답/오답 -> 결과 표시"""
-    if not quizzes:
-        print("⚠️  등록된 퀴즈 없음\n")
-        return None
+class QuizGame:
+    """게임 전체 관리"""
 
-    total = len(quizzes)
-    correct = 0
+    def __init__(self, quizzes=None, best_score=0):
+        self.quizzes = quizzes if quizzes is not None else []
+        self.best_score = best_score
 
-    print(f"\n 퀴즈 시작! (총 {total}문제)\n")
+    def print_menu(self):
+        print("*" * 25)
+        print("   Tax Basic Quiz Game")
+        print("*" * 25)
+        print("1) Play Quiz")
+        print("2) Add Quiz")
+        print("3) Quiz List")
+        print("4) High Scores")
+        print("5) Exit\n")
 
-    for idx, quiz in enumerate(quizzes, start=1):
-        print("-" * 40)
-        print(f"[문제 {idx}]")
-        quiz.display()
+    def play_quiz(self):
+        if not self.quizzes:
+            print("⚠️  등록된 퀴즈 없음\n")
+            return
 
-        user_answer = get_valid_input("\n정답 입력: ", 1, len(quiz.choices))
+        total = len(self.quizzes)
+        correct = 0
 
-        if quiz.check_answer(user_answer):
-            print("⭕️ 정답\n")
-            correct += 1
-        else:
-            print(f"❌ 오답 (정답: {quiz.answer}번)\n")
+        print(f"\n 퀴즈 시작! (총 {total}문제)\n")
 
-    score = int(correct / total * 100)
-    print(f"🏆 결과: {total}문제 중 {correct}문제 정답!\n")
-    return score
+        for idx, quiz in enumerate(self.quizzes, start=1):
+            print("-" * 40)
+            print(f"[문제 {idx}]")
+            quiz.display()
 
-def add_quiz(quizzes):
-    """새 퀴즈 등록 -> quizzes 리스트에 추가"""
-    print("\n📌 새로운 퀴즈 추가\n")
+            user_answer = get_valid_input("\n정답 입력: ", 1, len(quiz.choices))
 
-    question = input("문제 입력: ").strip()
-    while question == "":
-        print("⚠️  문제 입력")
+            if quiz.check_answer(user_answer):
+                print("⭕️ 정답\n")
+                correct += 1
+            else:
+                print(f"❌ 오답 (정답: {quiz.answer}번)\n")
+
+        score = int(correct / total * 100)
+        print(f"🏆 결과: {total}문제 중 {correct}문제 정답!\n")
+
+        if score > self.best_score:
+            self.best_score = score
+            print("🎉 새로운 최고 점수입니다! 🎉\n")
+
+    def add_quiz(self):
+        print("\n📌 새로운 퀴즈 추가\n")
+
         question = input("문제 입력: ").strip()
+        while question == "":
+            print("⚠️  문제 입력")
+            question = input("문제 입력: ").strip()
 
-    choices = []
-    for i in range(1, 5):
-        choice = input(f"선택지 {i}: ").strip()
-        while choice == "":
-            print("⚠️  선택지 입력")
+        choices = []
+        for i in range(1, 5):
             choice = input(f"선택지 {i}: ").strip()
-        choices.append(choice)
+            while choice == "":
+                print("⚠️  선택지 입력")
+                choice = input(f"선택지 {i}: ").strip()
+            choices.append(choice)
 
-    answer = get_valid_input("정답 번호 (1-4): ", 1, 4)
+        answer = get_valid_input("정답 번호 (1-4): ", 1, 4)
 
-    quizzes.append(Quiz(question, choices, answer))
-    print("\n== 퀴즈 추가 완료 ==\n")
+        self.quizzes.append(Quiz(question, choices, answer))
+        print("\n== 퀴즈 추가 완료 ==\n")
 
-def show_quiz_list():
-    print("(추후 구현)")
+    def show_quiz_list(self):
+        print("(추후 구현)")
 
-def show_high_scores():
-    print("(추후 구현)")
+    def show_high_scores(self):
+        print("(추후 구현)")
 
+    def save(self):
+        pass  # state.json 저장 로직 (10단계에서 구현)
 
-def print_menu():
-    """메뉴 출력"""
-    print("*" * 25)
-    print("   Tax Basic Quiz Game")
-    print("*" * 25)
-    print("1) Play Quiz")
-    print("2) Add Quiz")
-    print("3) Quiz List")
-    print("4) High Scores")
-    print("5) Exit\n")
+    def load(self):
+        pass  # state.json 불러오기 로직 (10단계에서 구현)
 
+    def save_and_exit(self):
+        self.save()
+        print("== 게임 종료 ==")
 
-def save_and_exit():
-    # QuizGame.save()로 대체 예정
-    print("== 게임 종료 ==")
+    def run(self):
+        try:
+            while True:
+                self.print_menu()
+                choice = get_valid_input("Enter your choice! (1-5): ", MENU_MIN, MENU_MAX)
+
+                if choice == 1:
+                    self.play_quiz()
+                elif choice == 2:
+                    self.add_quiz()
+                elif choice == 3:
+                    self.show_quiz_list()
+                elif choice == 4:
+                    self.show_high_scores()
+                elif choice == 5:
+                    self.save_and_exit()
+                    break
+        except (KeyboardInterrupt, EOFError):
+            print("\n\n⚠️  게임 중단")
+            self.save_and_exit()
 
 
 def main():
-    try:
-        while True:
-            print_menu()
-            choice = get_valid_input("Enter your choice! (1-5): ", menu_min, menu_max)
-
-            if choice == 1:
-                play_quiz(DEFAULT_QUIZZES)                
-            elif choice == 2:
-                add_quiz(DEFAULT_QUIZZES)
-            elif choice == 3:
-                show_quiz_list()
-            elif choice == 4:
-                show_high_scores()
-            elif choice == 5:
-                save_and_exit()
-                break
-    except (KeyboardInterrupt, EOFError):
-        print("\n\n⚠️  게임 중단")
-        save_and_exit()
+    game = QuizGame(quizzes=list(DEFAULT_QUIZZES), best_score=0)
+    game.run()
 
 
 if __name__ == "__main__":
