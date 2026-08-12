@@ -198,7 +198,7 @@ class QuizGame:
 
 
 def main():
-    game = QuizGame(quizzes=list(DEFAULT_QUIZZES), best_score=0)
+    game = QuizGame(quizzes=[], best_score=0)
     game.run()
 
 
