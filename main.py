@@ -90,7 +90,8 @@ class QuizGame:
     def __init__(self, quizzes=None, best_score=0):
         self.quizzes = quizzes if quizzes is not None else []
         self.best_score = best_score
-
+        self.has_played = best_score > 0  # 임시: 10단계에서 state.json 로드 시 재설계 필요
+        
     def print_menu(self):
         print("*" * 25)
         print("   Tax Basic Quiz Game")
@@ -127,6 +128,7 @@ class QuizGame:
         score = int(correct / total * 100)
         print(f"🏆 결과: {total}문제 중 {correct}문제 정답!\n")
 
+        self.has_played = True
         if score > self.best_score:
             self.best_score = score
             print("🎉 새로운 최고 점수입니다! 🎉\n")
@@ -163,7 +165,10 @@ class QuizGame:
         print()
 
     def show_high_scores(self):
-        print("(추후 구현)")
+        if not self.has_played:
+            print("⚠️  풀이 기록 없음\n")
+            return
+        print(f"\n🏆 최고 점수: {self.best_score}점\n")
 
     def save(self):
         pass  # state.json 저장 로직 (10단계에서 구현)
@@ -198,7 +203,7 @@ class QuizGame:
 
 
 def main():
-    game = QuizGame(quizzes=[], best_score=0)
+    game = QuizGame(quizzes=list(DEFAULT_QUIZZES), best_score=0)
     game.run()
 
 
