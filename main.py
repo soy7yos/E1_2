@@ -153,7 +153,14 @@ class QuizGame:
         print("\n== 퀴즈 추가 완료 ==\n")
 
     def show_quiz_list(self):
-        print("(추후 구현)")
+        if not self.quizzes:
+            print("⚠️  등록된 퀴즈 없음\n")
+            return
+
+        print(f"\n📋 등록된 퀴즈 목록 (총 {len(self.quizzes)}개)\n")
+        for idx, quiz in enumerate(self.quizzes, start=1):
+            print(f"[{idx}] {quiz.question}")
+        print()
 
     def show_high_scores(self):
         print("(추후 구현)")
