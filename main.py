@@ -1,5 +1,11 @@
 """Tax Basic Quiz Game"""
 
+import json
+import os
+
+STATE_FILE = "state.json"
+
+
 MENU_MIN = 1
 MENU_MAX = 5
 
@@ -90,7 +96,7 @@ class QuizGame:
     def __init__(self, quizzes=None, best_score=0):
         self.quizzes = quizzes if quizzes is not None else []
         self.best_score = best_score
-        self.has_played = best_score > 0  # 임시: 10단계에서 state.json 로드 시 재설계 필요
+        self.has_played = best_score > 0
         
     def print_menu(self):
         print("*" * 25)
@@ -171,10 +177,42 @@ class QuizGame:
         print(f"\n🏆 최고 점수: {self.best_score}점\n")
 
     def save(self):
-        pass  # state.json 저장 로직 (10단계에서 구현)
+        data = {
+            "quizzes": [
+                {"question": q.question, "choices": q.choices, "answer": q.answer}
+                for q in self.quizzes
+            ],
+            "best_score": self.best_score,
+            "has_played": self.has_played,
+        }
+        try:
+            with open(STATE_FILE, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except OSError as e:
+            print(f"⚠️  저장 실패: {e}\n")
 
     def load(self):
-        pass  # state.json 불러오기 로직 (10단계에서 구현)
+        if not os.path.exists(STATE_FILE):
+            print("📂 저장된 데이터 없음 -> 기본 퀴즈로 시작\n")
+            return
+
+        try:
+            with open(STATE_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            self.quizzes = [
+                Quiz(q["question"], q["choices"], q["answer"])
+                for q in data.get("quizzes", [])
+            ]
+            self.best_score = data.get("best_score", 0)
+            self.has_played = data.get("has_played", False)
+            print(f"📂 데이터 불러오기 완료 (퀴즈 {len(self.quizzes)}개, 최고점수 {self.best_score}점)\n")
+
+        except (json.JSONDecodeError, KeyError, TypeError) as e:
+            print(f"⚠️  데이터 손상 감지({e}) -> 기본 퀴즈로 복구\n")
+            self.quizzes = list(DEFAULT_QUIZZES)
+            self.best_score = 0
+            self.has_played = False
 
     def save_and_exit(self):
         self.save()
@@ -204,6 +242,7 @@ class QuizGame:
 
 def main():
     game = QuizGame(quizzes=list(DEFAULT_QUIZZES), best_score=0)
+    game.load()
     game.run()
 
 
