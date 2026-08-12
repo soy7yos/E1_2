@@ -14,7 +14,7 @@ $ git commit -m "test: 퀴즈 목록 - 빈 상태 처리 확인"
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    4c7008c..c708ccd  main -> main
 
 $ exit

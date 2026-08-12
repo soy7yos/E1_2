@@ -20,7 +20,7 @@ $ git commit -m "feat: 기본 퀴즈 데이터 5개 추가"
  1 file changed, 39 insertions(+)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    da9c946..f6e82ea  main -> main
 
 $ exit

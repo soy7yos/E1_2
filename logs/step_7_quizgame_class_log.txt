@@ -29,5 +29,5 @@ $ git commit -m "refactor: QuizGame 클래스 도입, play/add 메서드 이관"
  1 file changed, 91 insertions(+), 76 deletions(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    7f20815..a016eb6  main -> main

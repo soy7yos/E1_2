@@ -1,5 +1,5 @@
 $ cd ..
-$ git clone https://github.com/soy7yos/E1_2.git E1_2_clone
+$ git clone https://github.com/****os/E1_2.git E1_2_clone
 'E1_2_clone'에 복제합니다...
 (오브젝트 47개 수신 완료)
 
@@ -20,13 +20,13 @@ $ git commit -m "docs: 저장소 복제 실습 - README 한 줄 추가"
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    644981d..0835f29  main -> main
 
 $ cd ../E1_2
 
 $ git pull
-https://github.com/soy7yos/E1_2 URL에서
+https://github.com/****os/E1_2 URL에서
    644981d..0835f29  main       -> origin/main
 업데이트 중 644981d..0835f29
 Fast-forward

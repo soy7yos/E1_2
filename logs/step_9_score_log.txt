@@ -25,7 +25,7 @@ $ git commit -m "feat: 점수 확인 기능 구현"
  1 file changed, 8 insertions(+), 3 deletions(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    c708ccd..99bd32e  main -> main
 
 $ exit

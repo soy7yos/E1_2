@@ -38,5 +38,5 @@ $ git commit -m "feat: state.json 저장/불러오기 구현"
  create mode 100644 state.json
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    99bd32e..bda80c5  main -> main

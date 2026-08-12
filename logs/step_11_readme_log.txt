@@ -8,7 +8,7 @@ $ git commit -m "docs: README.md 작성"
  1 file changed, 49 insertions(+), 2 deletions(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    bda80c5..644981d  main -> main
 
 $ exit

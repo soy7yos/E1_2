@@ -5,7 +5,7 @@ $ git --version
 git version 2.53.0
 
 $ git init -b main
-/Users/sysy22042026/E1_2/.git/ 안의 빈 깃 저장소를 다시 초기화했습니다
+/Users/**2026/E1_2/.git/ 안의 빈 깃 저장소를 다시 초기화했습니다
 
 $ git config --global user.name "**"
 $ git config --global user.email "****os@gmail.com"
@@ -33,10 +33,10 @@ $ git commit -m "chore: 프로젝트 초기 설정 (.gitignore, README.md)"
  create mode 100644 .gitignore
  create mode 100644 README.md
 
-$ git remote add origin https://github.com/soy7yos/E1_2.git
+$ git remote add origin https://github.com/****os/E1_2.git
 
 $ git push -u origin main
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main'.
 

@@ -23,6 +23,7 @@ python3 main.py
 - state.json 없음/손상 시 기본 퀴즈로 복구
 
 ## 파일 구조
+```
 E1_2/
 ├── main.py
 ├── state.json
@@ -42,6 +43,7 @@ E1_2/
     ├── step_10_file_io_log.txt
     ├── step_11_readme_log.txt
     └── step_12_clone_pull_log.txt
+```
 
 ## 데이터 파일 설명 (state.json)
 - quizzes: 퀴즈 목록 (question, choices, answer)
@@ -53,7 +55,7 @@ E1_2/
 
 ## 실행 결과 예시
 
-**퀴즈 풀기** (logs/step_5_play_quiz_branch_log.txt)
+**퀴즈 풀기** ([logs/step_5_play_quiz_branch_log.txt](logs/step_5_play_quiz_branch_log.txt))
 ```
 정답 입력: 1
 ❌ 오답 (정답: 2번)
@@ -61,7 +63,7 @@ E1_2/
 🏆 결과: 5문제 중 0문제 정답!
 ```
 
-**퀴즈 추가** (logs/step_6_add_quiz_log.txt)
+**퀴즈 추가** ([logs/step_6_add_quiz_log.txt](logs/step_6_add_quiz_log.txt))
 ```
 == 퀴즈 추가 완료 ==
 ```
@@ -70,13 +72,13 @@ E1_2/
 - 정답 번호 범위 밖(7) → "⚠️ 1-4 사이 숫자만 입력 가능 -> 다시 입력"
 - 정답 번호 비숫자(ㅁ) → "⚠️ 숫자만 입력 가능 -> 다시 입력"
 
-**QuizGame 클래스 도입 후 정상 동작** (logs/step_7_quizgame_class_log.txt)
+**QuizGame 클래스 도입 후 정상 동작** ([logs/step_7_quizgame_class_log.txt](logs/step_7_quizgame_class_log.txt))
 ```
 🏆 결과: 5문제 중 2문제 정답!
 🎉 새로운 최고 점수입니다! 🎉
 ```
 
-**점수 확인** (logs/step_9_score_log.txt)
+**점수 확인** ([logs/step_9_score_log.txt](logs/step_9_score_log.txt))
 ```
 Enter your choice! (1-5): 4
 ⚠️  풀이 기록 없음
@@ -84,7 +86,7 @@ Enter your choice! (1-5): 4
 🏆 최고 점수: 20점
 ```
 
-**state.json 저장/불러오기 및 손상 복구** (logs/step_10_file_io_log.txt)
+**state.json 저장/불러오기 및 손상 복구** ([logs/step_10_file_io_log.txt](logs/step_10_file_io_log.txt))
 ```
 📂 저장된 데이터 없음 -> 기본 퀴즈로 시작
 📂 데이터 불러오기 완료 (퀴즈 6개, 최고점수 0점)
@@ -95,7 +97,7 @@ Enter your choice! (1-5): 4
 
 feature/play-quiz, feature/add-quiz 브랜치에서 기능 개발 후 main에 병합(fast-forward).
 
-**feature/play-quiz → main** (logs/step_5_play_quiz_branch_log.txt)
+**feature/play-quiz → main** ([logs/step_5_play_quiz_branch_log.txt](logs/step_5_play_quiz_branch_log.txt))
 ```
 $ git checkout main
 $ git merge feature/play-quiz
@@ -105,7 +107,7 @@ Fast-forward
  1 file changed, 28 insertions(+), 3 deletions(-)
 ```
 
-**feature/add-quiz → main** (logs/step_6_add_quiz_log.txt)
+**feature/add-quiz → main** ([logs/step_6_add_quiz_log.txt](logs/step_6_add_quiz_log.txt))
 ```
 $ git checkout main
 $ git merge feature/add-quiz

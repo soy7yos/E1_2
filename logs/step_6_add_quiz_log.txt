@@ -29,7 +29,7 @@ Fast-forward
  1 file changed, 22 insertions(+), 3 deletions(-)
 
 $ git push
-To https://github.com/soy7yos/E1_2.git
+To https://github.com/****os/E1_2.git
    69a2962..7babd5e  main -> main
 
 $ exit
