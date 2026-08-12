@@ -1,0 +1,35 @@
+$ python3 main.py
+*************************
+   Tax Basic Quiz Game
+*************************
+1) Play Quiz
+2) Add Quiz
+3) Quiz List
+4) High Scores
+5) Exit
+
+Enter your choice! (1-5): 3
+
+📋 등록된 퀴즈 목록 (총 5개)
+[1] 월급을 받을 때 소득세의 일부가 미리 빠져나가는 것을 무엇이라고 할까요?
+[2] 연말정산의 가장 정확한 설명은 무엇일까요?
+[3] 세율을 곱하기 전의 기초가 되는 금액으로, 총수입에서 관련 비용과 소득공제액 등을 반영한 금액을 무엇이라 할까요?
+[4] 한국의 부가가치세(VAT) 기본 세율은 몇 %일까요?
+[5] 소득공제와 세액공제의 차이를 가장 잘 설명한 것은?
+
+Enter your choice! (1-5): (Ctrl+C)
+
+⚠️  게임 중단
+== 게임 종료 ==
+
+$ git add main.py
+
+$ git commit -m "feat: 퀴즈 목록 기능 구현"
+[main 4c7008c] feat: 퀴즈 목록 기능 구현
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+$ git push
+To https://github.com/soy7yos/E1_2.git
+   a016eb6..4c7008c  main -> main
+
+$ exit

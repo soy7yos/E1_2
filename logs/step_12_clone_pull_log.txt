@@ -1,0 +1,41 @@
+$ cd ..
+$ git clone https://github.com/soy7yos/E1_2.git E1_2_clone
+'E1_2_clone'에 복제합니다...
+(오브젝트 47개 수신 완료)
+
+$ cd E1_2_clone
+
+$ echo "" >> README.md
+$ echo "> clone/pull 실습 기록 - 2026-08-12" >> README.md
+
+$ tail -3 README.md
+- UTF-8 인코딩 저장/불러오기
+- 파일 없음 → 기본 퀴즈 사용 / JSON 손상 → 기본 퀴즈로 복구(안내 메시지 출력)
+> clone/pull 실습 기록 - 2026-08-12
+
+$ git add README.md
+
+$ git commit -m "docs: 저장소 복제 실습 - README 한 줄 추가"
+[main 0835f29] docs: 저장소 복제 실습 - README 한 줄 추가
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+$ git push
+To https://github.com/soy7yos/E1_2.git
+   644981d..0835f29  main -> main
+
+$ cd ../E1_2
+
+$ git pull
+https://github.com/soy7yos/E1_2 URL에서
+   644981d..0835f29  main       -> origin/main
+업데이트 중 644981d..0835f29
+Fast-forward
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+$ tail -3 README.md
+- UTF-8 인코딩 저장/불러오기
+- 파일 없음 → 기본 퀴즈 사용 / JSON 손상 → 기본 퀴즈로 복구(안내 메시지 출력)
+> clone/pull 실습 기록 - 2026-08-12
+
+$ exit

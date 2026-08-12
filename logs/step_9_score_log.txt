@@ -1,0 +1,31 @@
+$ python3 main.py
+Enter your choice! (1-5): 4
+⚠️  풀이 기록 없음
+
+Enter your choice! (1-5): 1
+ 퀴즈 시작! (총 5문제)
+----------------------------------------
+[문제 1~5] 세금 상식 퀴즈 5문항 출제/판정
+
+🏆 결과: 5문제 중 1문제 정답!
+🎉 새로운 최고 점수입니다! 🎉
+
+Enter your choice! (1-5): 4
+🏆 최고 점수: 20점
+
+Enter your choice! (1-5): (Ctrl+C)
+
+⚠️  게임 중단
+== 게임 종료 ==
+
+$ git add main.py
+
+$ git commit -m "feat: 점수 확인 기능 구현"
+[main 99bd32e] feat: 점수 확인 기능 구현
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+$ git push
+To https://github.com/soy7yos/E1_2.git
+   c708ccd..99bd32e  main -> main
+
+$ exit

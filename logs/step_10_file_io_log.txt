@@ -1,0 +1,42 @@
+$ python3 main.py
+📂 저장된 데이터 없음 -> 기본 퀴즈로 시작
+Enter your choice! (1-5): 2
+문제 입력: 문제 추가 테스트
+선택지 1: 일
+선택지 2: 이
+선택지 3: 삼
+선택지 4: 사
+정답 번호 (1-4): 1
+== 퀴즈 추가 완료 ==
+Enter your choice! (1-5): 5
+== 게임 종료 ==
+
+$ python3 main.py
+📂 데이터 불러오기 완료 (퀴즈 6개, 최고점수 0점)
+Enter your choice! (1-5): 5
+== 게임 종료 ==
+
+$ echo '{잘못된json' > state.json
+
+$ python3 main.py
+⚠️  데이터 손상 감지(Expecting property name enclosed in double quotes: line 1 column 2 (char 1)) -> 기본 퀴즈로 복구
+Enter your choice! (1-5): 5
+== 게임 종료 ==
+
+$ python3 main.py
+📂 데이터 불러오기 완료 (퀴즈 5개, 최고점수 0점)
+Enter your choice! (1-5): (Ctrl+C)
+
+⚠️  게임 중단
+== 게임 종료 ==
+
+$ git add main.py state.json
+
+$ git commit -m "feat: state.json 저장/불러오기 구현"
+[main bda80c5] feat: state.json 저장/불러오기 구현
+ 2 files changed, 98 insertions(+), 3 deletions(-)
+ create mode 100644 state.json
+
+$ git push
+To https://github.com/soy7yos/E1_2.git
+   99bd32e..bda80c5  main -> main

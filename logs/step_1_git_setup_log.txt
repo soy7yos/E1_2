@@ -1,0 +1,44 @@
+$ python3 --version
+Python 3.9.6
+
+$ git --version
+git version 2.53.0
+
+$ git init -b main
+/Users/sysy22042026/E1_2/.git/ 안의 빈 깃 저장소를 다시 초기화했습니다
+
+$ git config --global user.name "**"
+$ git config --global user.email "****os@gmail.com"
+
+$ cat > .gitignore << 'EOF'
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.vscode/
+EOF
+
+$ cat > README.md << 'EOF'
+# E1_2 — 나만의 퀴즈 게임
+Python 콘솔 기반 퀴즈 게임 프로젝트.
+(개요 / 주제 선정 이유 / 실행 방법 / 기능 목록 / 파일 구조 / 데이터 파일 설명은 11단계에서 작성)
+EOF
+
+$ git add .gitignore README.md
+
+$ git commit -m "chore: 프로젝트 초기 설정 (.gitignore, README.md)"
+[main (최상위-커밋) 2fb4aef] chore: 프로젝트 초기 설정 (.gitignore, README.md)
+ 2 files changed, 17 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+
+$ git remote add origin https://github.com/soy7yos/E1_2.git
+
+$ git push -u origin main
+To https://github.com/soy7yos/E1_2.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+$ git log --oneline
+2fb4aef (HEAD -> main, origin/main) chore: 프로젝트 초기 설정 (.gitignore, README.md)

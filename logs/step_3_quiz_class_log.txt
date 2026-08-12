@@ -1,5 +1,4 @@
-Script started on Mon Aug 10 17:04:03 2026
-[1m[7m%[27m[1m[0m                                                                                                                                         [0m[27m[24m[Jsysy22042026@c6r2s5 E1_2 % [K[?2004h[7mpython3 main.py[27m[15D[27mp[27my[27mt[27mh[27mo[27mn[27m3[27m [27mm[27ma[27mi[27mn[27m.[27mp[27my[?2004l
+$ python3 main.py
 *************************
    Tax Basic Quiz Game
 *************************
@@ -9,25 +8,19 @@ Script started on Mon Aug 10 17:04:03 2026
 4) High Scores
 5) Exit
 
-Enter your choice! (1-5): git add main.py^[^[^C
+Enter your choice! (1-5): (Ctrl+C)
 
 ⚠️  게임 중단
 == 게임 종료 ==
-[1m[7m%[27m[1m[0m                                                                                                                                         [0m[27m[24m[Jsysy22042026@c6r2s5 E1_2 % [K[?2004h[7mgit add main.py[27m[15D[27mg[27mi[27mt[27m [27ma[27md[27md[27m [27mm[27ma[27mi[27mn[27m.[27mp[27my[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                         [0m[27m[24m[Jsysy22042026@c6r2s5 E1_2 % [K[?2004h[7mgit commit -m "feat: Quiz 클래스 작성"[27m[38D[27mg[27mi[27mt[27m [27mc[27mo[27mm[27mm[27mi[27mt[27m [27m-[27mm[27m [27m"[27mf[27me[27ma[27mt[27m:[27m [27mQ[27mu[27mi[27mz[27m [27m클[27m[27m래[27m[27m스[27m[27m [27m작[27m[27m성[27m[27m"[?2004l
+
+$ git add main.py
+
+$ git commit -m "feat: Quiz 클래스 작성"
 [main da9c946] feat: Quiz 클래스 작성
  1 file changed, 21 insertions(+), 2 deletions(-)
-[1m[7m%[27m[1m[0m                                                                                                                                         [0m[27m[24m[Jsysy22042026@c6r2s5 E1_2 % [K[?2004h[7mgit push[27m
-[K[A[27C[27mg[27mi[27mt[27m [27mp[27mu[27ms[27mh[1B[K[?2004l
-오브젝트 나열하는 중: 5, 완료.
-오브젝트 개수 세는 중:  20% (1/5)오브젝트 개수 세는 중:  40% (2/5)오브젝트 개수 세는 중:  60% (3/5)오브젝트 개수 세는 중:  80% (4/5)오브젝트 개수 세는 중: 100% (5/5)오브젝트 개수 세는 중: 100% (5/5), 완료.
-Delta compression using up to 6 threads
-오브젝트 압축하는 중:  33% (1/3)오브젝트 압축하는 중:  66% (2/3)오브젝트 압축하는 중: 100% (3/3)오브젝트 압축하는 중: 100% (3/3), 완료.
-오브젝트 쓰는 중:  33% (1/3)오브젝트 쓰는 중:  66% (2/3)오브젝트 쓰는 중: 100% (3/3)오브젝트 쓰는 중: 100% (3/3), 648 bytes | 648.00 KiB/s, 완료.
-Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+
+$ git push
 To https://github.com/soy7yos/E1_2.git
    4466554..da9c946  main -> main
-[1m[7m%[27m[1m[0m                                                                                                                                         [0m[27m[24m[Jsysy22042026@c6r2s5 E1_2 % [K[?2004h[7mexit[27m[27me[27mx[27mi[27mt[?2004l
 
-Script done on Mon Aug 10 17:04:44 2026
+$ exit
